@@ -77,6 +77,12 @@ class genome_wide_association_studiesTest(unittest.TestCase):
 
     # NOTE: According to Python unittest naming rules test method names should start from 'test'. # noqa
     def test_your_method(self):
+        params = {'workspace_name': 'pranjan77:narrative_1529026127905', 
+         'staging_file_subdir_path': 'snpdata.tsv', 
+         'genome_ref': None}
+        self.getImpl().import_gwas_data(self.getContext(), params)
+
+
         # Prepare test objects in workspace if needed using
         # self.getWsClient().save_objects({'workspace': self.getWsName(),
         #                                  'objects': []})

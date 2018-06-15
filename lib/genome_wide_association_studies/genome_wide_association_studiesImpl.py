@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 #BEGIN_HEADER
+import os
+import subprocess
+import uuid
+from KBaseReport.KBaseReportClient import KBaseReport
+from DataFileUtil.DataFileUtilClient import DataFileUtil
 #END_HEADER
 
 
@@ -29,6 +34,12 @@ class genome_wide_association_studies:
     # be found
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
+        self.config = config
+        self.scratch = os.path.abspath(config['scratch'])
+        self.callbackURL = os.environ['SDK_CALLBACK_URL']
+        self.shared_folder = config['scratch']
+        self.dfu = DataFileUtil(self.callbackURL)
+
         #END_CONSTRUCTOR
         pass
 
@@ -46,15 +57,18 @@ class genome_wide_association_studies:
         # ctx is the context object
         # return variables are: returnVal
         #BEGIN import_gwas_data
+        params = import_gwas_data_params
         print import_gwas_data_params
-#        download_staging_file_params = {
-#            'staging_file_subdir_path': params.get('staging_file_subdir_path')
-#        }
-#        scratch_file_path = self.dfu.download_staging_file(
-#                       download_staging_file_params).get('copy_file_path')
+        download_staging_file_params = {
+            'staging_file_subdir_path': params.get('staging_file_subdir_path')
+        }
+        scratch_file_path = self.dfu.download_staging_file(
+                      download_staging_file_params).get('copy_file_path')
 
 #        import_gwas_data_params = params
-#        import_gwas_data_params['input_file_path'] = scratch_file_path
+        import_gwas_data_params['input_file_path'] = scratch_file_path
+
+        print import_gwas_data_params['input_file_path'] 
         # Open the file with read only permit
 #        f = open('my_text_file.txt')
 #        line = f.readline()
@@ -62,10 +76,47 @@ class genome_wide_association_studies:
 #            print(line)
 #            line = f.readline()
 #        f.close()
-      #  import_matrix_params['output_ws_name'] = params.get('workspace_name')
-      #  import_matrix_params['output_obj_name'] = params.get('matrix_name')
 
-#ref = self.fv.tsv_file_to_matrix(import_matrix_params)
+       # timestamp = str(timestamp)
+        htmlDir = self.shared_folder + '/html' + "123"
+        os.mkdir(htmlDir)
+
+        indexhtmlstr = '<html><body> '  + "fileStr" + ' </body></html>'
+        with open(htmlDir + '/index.html','w') as indexhtml:
+            indexhtml.write(indexhtmlstr)
+
+       
+
+        try:
+            html_upload_ret = self.dfu.file_to_shock({'file_path': htmlDir ,'make_handle': 0, 'pack': 'zip'})
+        except:
+            raise ValueError ('error uploading HTML file to shock')
+
+        reportName = 'import_gwas_data_'+str(uuid.uuid4())
+
+        reportObj = {'objects_created': [],
+                     'message': '',
+                     'direct_html': None,
+                     'direct_html_index': 0,
+                     'file_links': [],
+                     'html_links': [],
+                     'html_window_height': 220,
+                     'workspace_name': params['workspace_name'],
+                     'report_object_name': reportName
+                     }
+
+
+        reportObj['direct_html'] = ''
+        reportObj['direct_html_link_index'] = 0
+        reportObj['html_links'] = [{'shock_id': html_upload_ret['shock_id'],
+                                    'name': 'index.html',
+                                    'label': 'Save promoter_download.zip'
+                                    }]
+        report = KBaseReport(self.callbackURL, token=ctx['token'])
+        #report_info = report.create({'report':reportObj, 'workspace_name':input_params['input_ws']})
+        report_info = report.create_extended_report(reportObj)
+        returnVal = { 'report_name': report_info['name'], 'report_ref': report_info['ref'] }
+
 
         #END import_gwas_data
 
