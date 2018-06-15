@@ -337,6 +337,18 @@ class Application(object):
                              name='genome_wide_association_studies.import_gwas_data',
                              types=[dict])
         self.method_authentication['genome_wide_association_studies.import_gwas_data'] = 'required'  # noqa
+        self.rpc_service.add(impl_genome_wide_association_studies.import_snp_data,
+                             name='genome_wide_association_studies.import_snp_data',
+                             types=[dict])
+        self.method_authentication['genome_wide_association_studies.import_snp_data'] = 'required'  # noqa
+        self.rpc_service.add(impl_genome_wide_association_studies.import_trait_data,
+                             name='genome_wide_association_studies.import_trait_data',
+                             types=[dict])
+        self.method_authentication['genome_wide_association_studies.import_trait_data'] = 'required'  # noqa
+        self.rpc_service.add(impl_genome_wide_association_studies.import_network_data,
+                             name='genome_wide_association_studies.import_network_data',
+                             types=[dict])
+        self.method_authentication['genome_wide_association_studies.import_network_data'] = 'required'  # noqa
         self.rpc_service.add(impl_genome_wide_association_studies.status,
                              name='genome_wide_association_studies.status',
                              types=[dict])

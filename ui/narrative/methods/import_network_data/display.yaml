@@ -1,6 +1,6 @@
-name     : Import TSV File as GWAS results From Staging Area
-subtitle : Import a TSV file from your staging area into your Narrative as GWAS result
-tooltip  : Import a TSV (tab-separated values) file from your staging area into your Narrative as GWAS result
+name     : Import TSV File as network Staging Area
+subtitle : Import TSV File as network Staging Area
+tooltip  : Import TSV File as network Staging Area
 
 icon: data-yellow.png
 
@@ -24,12 +24,12 @@ parameters :
         ui-name : |
             TSV File Path
         short-hint : |
-            File with GWAS result in TSV format 
+            File with Network
         long-hint  : |
-            The filename should end with ".tsv"
+            File with Network 
     genome_ref :
         ui-name : Genome
         short-hint : Select the Genome 
         long-hint  : Select the Genome
 description : |
-    <p> Import GWAS results from Staging Area </p><br>
+    <p> Import network results from Staging Area </p><br>

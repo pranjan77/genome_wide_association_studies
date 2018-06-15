@@ -47,6 +47,44 @@ class genome_wide_association_studies(object):
             'genome_wide_association_studies.import_gwas_data',
             [import_gwas_data_params], self._service_ver, context)
 
+    def import_snp_data(self, import_snp_data_params, context=None):
+        """
+        :param import_snp_data_params: instance of type
+           "import_snp_data_params" -> structure: parameter "input_shock_id"
+           of String, parameter "input_file_path" of String
+        :returns: instance of type "Run_import_snp_data_result" -> structure:
+           parameter "report_ref" of String, parameter "report_name" of String
+        """
+        return self._client.call_method(
+            'genome_wide_association_studies.import_snp_data',
+            [import_snp_data_params], self._service_ver, context)
+
+    def import_trait_data(self, import_trait_data_params, context=None):
+        """
+        :param import_trait_data_params: instance of type
+           "import_trait_data_params" -> structure: parameter
+           "input_shock_id" of String, parameter "input_file_path" of String
+        :returns: instance of type "Run_import_trait_data_result" ->
+           structure: parameter "report_ref" of String, parameter
+           "report_name" of String
+        """
+        return self._client.call_method(
+            'genome_wide_association_studies.import_trait_data',
+            [import_trait_data_params], self._service_ver, context)
+
+    def import_network_data(self, import_network_data_params, context=None):
+        """
+        :param import_network_data_params: instance of type
+           "import_network_data_params" -> structure: parameter
+           "input_shock_id" of String, parameter "input_file_path" of String
+        :returns: instance of type "Run_import_network_data_result" ->
+           structure: parameter "report_ref" of String, parameter
+           "report_name" of String
+        """
+        return self._client.call_method(
+            'genome_wide_association_studies.import_network_data',
+            [import_network_data_params], self._service_ver, context)
+
     def status(self, context=None):
         return self._client.call_method('genome_wide_association_studies.status',
                                         [], self._service_ver, context)

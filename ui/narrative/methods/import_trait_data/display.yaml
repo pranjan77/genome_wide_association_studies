@@ -1,0 +1,35 @@
+name     : Import Trait data
+subtitle : Import Trait data
+tooltip  : Import Trait data
+
+icon: data-yellow.png
+
+screenshots :
+    []
+
+suggestions :
+    apps:
+        related :
+            []
+        next :
+            []
+    methods:
+        related :
+            []
+        next :
+            []
+
+parameters :
+    staging_file_subdir_path :
+        ui-name : |
+            TSV File Path
+        short-hint : |
+            File with Trait data in TSV format 
+        long-hint  : |
+            File with Trait data 
+    genome_ref :
+        ui-name : Genome
+        short-hint : Select the Genome 
+        long-hint  : Select the Genome 
+description : |
+    <p> Import Trait datas from Staging Area </p><br>

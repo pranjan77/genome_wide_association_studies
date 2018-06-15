@@ -1,0 +1,35 @@
+name     : Import VCF File as Variations From Staging Area
+subtitle : Import VCF File as Variations From Staging Area
+tooltip  : Import VCF File as Variations From Staging Area
+
+icon: data-yellow.png
+
+screenshots :
+    []
+
+suggestions :
+    apps:
+        related :
+            []
+        next :
+            []
+    methods:
+        related :
+            []
+        next :
+            []
+
+parameters :
+    staging_file_subdir_path :
+        ui-name : |
+            VCF File Path
+        short-hint : |
+            VCF File Path 
+        long-hint  : |
+            VCF File Path
+    genome_ref :
+        ui-name : Genome
+        short-hint : Select the Genome that contains features referenced by the SNP
+        long-hint  : Genome
+description : |
+    <p> Import VCF File from Staging Area </p><br>

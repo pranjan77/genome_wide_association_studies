@@ -200,6 +200,288 @@ Run_import_gwas_data_result is a reference to a hash where the following keys ar
     }
 }
  
+
+
+=head2 import_snp_data
+
+  $return = $obj->import_snp_data($import_snp_data_params)
+
+=over 4
+
+=item Parameter and return types
+
+=begin html
+
+<pre>
+$import_snp_data_params is a genome_wide_association_studies.import_snp_data_params
+$return is a genome_wide_association_studies.Run_import_snp_data_result
+import_snp_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_snp_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+$import_snp_data_params is a genome_wide_association_studies.import_snp_data_params
+$return is a genome_wide_association_studies.Run_import_snp_data_result
+import_snp_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_snp_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+
+=end text
+
+=item Description
+
+
+
+=back
+
+=cut
+
+ sub import_snp_data
+{
+    my($self, @args) = @_;
+
+# Authentication: required
+
+    if ((my $n = @args) != 1)
+    {
+	Bio::KBase::Exceptions::ArgumentValidationError->throw(error =>
+							       "Invalid argument count for function import_snp_data (received $n, expecting 1)");
+    }
+    {
+	my($import_snp_data_params) = @args;
+
+	my @_bad_arguments;
+        (ref($import_snp_data_params) eq 'HASH') or push(@_bad_arguments, "Invalid type for argument 1 \"import_snp_data_params\" (value was \"$import_snp_data_params\")");
+        if (@_bad_arguments) {
+	    my $msg = "Invalid arguments passed to import_snp_data:\n" . join("", map { "\t$_\n" } @_bad_arguments);
+	    Bio::KBase::Exceptions::ArgumentValidationError->throw(error => $msg,
+								   method_name => 'import_snp_data');
+	}
+    }
+
+    my $url = $self->{url};
+    my $result = $self->{client}->call($url, $self->{headers}, {
+	    method => "genome_wide_association_studies.import_snp_data",
+	    params => \@args,
+    });
+    if ($result) {
+	if ($result->is_error) {
+	    Bio::KBase::Exceptions::JSONRPC->throw(error => $result->error_message,
+					       code => $result->content->{error}->{code},
+					       method_name => 'import_snp_data',
+					       data => $result->content->{error}->{error} # JSON::RPC::ReturnObject only supports JSONRPC 1.1 or 1.O
+					      );
+	} else {
+	    return wantarray ? @{$result->result} : $result->result->[0];
+	}
+    } else {
+        Bio::KBase::Exceptions::HTTP->throw(error => "Error invoking method import_snp_data",
+					    status_line => $self->{client}->status_line,
+					    method_name => 'import_snp_data',
+				       );
+    }
+}
+ 
+
+
+=head2 import_trait_data
+
+  $return = $obj->import_trait_data($import_trait_data_params)
+
+=over 4
+
+=item Parameter and return types
+
+=begin html
+
+<pre>
+$import_trait_data_params is a genome_wide_association_studies.import_trait_data_params
+$return is a genome_wide_association_studies.Run_import_trait_data_result
+import_trait_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_trait_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+$import_trait_data_params is a genome_wide_association_studies.import_trait_data_params
+$return is a genome_wide_association_studies.Run_import_trait_data_result
+import_trait_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_trait_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+
+=end text
+
+=item Description
+
+
+
+=back
+
+=cut
+
+ sub import_trait_data
+{
+    my($self, @args) = @_;
+
+# Authentication: required
+
+    if ((my $n = @args) != 1)
+    {
+	Bio::KBase::Exceptions::ArgumentValidationError->throw(error =>
+							       "Invalid argument count for function import_trait_data (received $n, expecting 1)");
+    }
+    {
+	my($import_trait_data_params) = @args;
+
+	my @_bad_arguments;
+        (ref($import_trait_data_params) eq 'HASH') or push(@_bad_arguments, "Invalid type for argument 1 \"import_trait_data_params\" (value was \"$import_trait_data_params\")");
+        if (@_bad_arguments) {
+	    my $msg = "Invalid arguments passed to import_trait_data:\n" . join("", map { "\t$_\n" } @_bad_arguments);
+	    Bio::KBase::Exceptions::ArgumentValidationError->throw(error => $msg,
+								   method_name => 'import_trait_data');
+	}
+    }
+
+    my $url = $self->{url};
+    my $result = $self->{client}->call($url, $self->{headers}, {
+	    method => "genome_wide_association_studies.import_trait_data",
+	    params => \@args,
+    });
+    if ($result) {
+	if ($result->is_error) {
+	    Bio::KBase::Exceptions::JSONRPC->throw(error => $result->error_message,
+					       code => $result->content->{error}->{code},
+					       method_name => 'import_trait_data',
+					       data => $result->content->{error}->{error} # JSON::RPC::ReturnObject only supports JSONRPC 1.1 or 1.O
+					      );
+	} else {
+	    return wantarray ? @{$result->result} : $result->result->[0];
+	}
+    } else {
+        Bio::KBase::Exceptions::HTTP->throw(error => "Error invoking method import_trait_data",
+					    status_line => $self->{client}->status_line,
+					    method_name => 'import_trait_data',
+				       );
+    }
+}
+ 
+
+
+=head2 import_network_data
+
+  $return = $obj->import_network_data($import_network_data_params)
+
+=over 4
+
+=item Parameter and return types
+
+=begin html
+
+<pre>
+$import_network_data_params is a genome_wide_association_studies.import_network_data_params
+$return is a genome_wide_association_studies.Run_import_network_data_result
+import_network_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_network_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+$import_network_data_params is a genome_wide_association_studies.import_network_data_params
+$return is a genome_wide_association_studies.Run_import_network_data_result
+import_network_data_params is a reference to a hash where the following keys are defined:
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
+Run_import_network_data_result is a reference to a hash where the following keys are defined:
+	report_ref has a value which is a string
+	report_name has a value which is a string
+
+
+=end text
+
+=item Description
+
+
+
+=back
+
+=cut
+
+ sub import_network_data
+{
+    my($self, @args) = @_;
+
+# Authentication: required
+
+    if ((my $n = @args) != 1)
+    {
+	Bio::KBase::Exceptions::ArgumentValidationError->throw(error =>
+							       "Invalid argument count for function import_network_data (received $n, expecting 1)");
+    }
+    {
+	my($import_network_data_params) = @args;
+
+	my @_bad_arguments;
+        (ref($import_network_data_params) eq 'HASH') or push(@_bad_arguments, "Invalid type for argument 1 \"import_network_data_params\" (value was \"$import_network_data_params\")");
+        if (@_bad_arguments) {
+	    my $msg = "Invalid arguments passed to import_network_data:\n" . join("", map { "\t$_\n" } @_bad_arguments);
+	    Bio::KBase::Exceptions::ArgumentValidationError->throw(error => $msg,
+								   method_name => 'import_network_data');
+	}
+    }
+
+    my $url = $self->{url};
+    my $result = $self->{client}->call($url, $self->{headers}, {
+	    method => "genome_wide_association_studies.import_network_data",
+	    params => \@args,
+    });
+    if ($result) {
+	if ($result->is_error) {
+	    Bio::KBase::Exceptions::JSONRPC->throw(error => $result->error_message,
+					       code => $result->content->{error}->{code},
+					       method_name => 'import_network_data',
+					       data => $result->content->{error}->{error} # JSON::RPC::ReturnObject only supports JSONRPC 1.1 or 1.O
+					      );
+	} else {
+	    return wantarray ? @{$result->result} : $result->result->[0];
+	}
+    } else {
+        Bio::KBase::Exceptions::HTTP->throw(error => "Error invoking method import_network_data",
+					    status_line => $self->{client}->status_line,
+					    method_name => 'import_network_data',
+				       );
+    }
+}
+ 
   
 sub status
 {
@@ -243,16 +525,16 @@ sub version {
             Bio::KBase::Exceptions::JSONRPC->throw(
                 error => $result->error_message,
                 code => $result->content->{code},
-                method_name => 'import_gwas_data',
+                method_name => 'import_network_data',
             );
         } else {
             return wantarray ? @{$result->result} : $result->result->[0];
         }
     } else {
         Bio::KBase::Exceptions::HTTP->throw(
-            error => "Error invoking method import_gwas_data",
+            error => "Error invoking method import_network_data",
             status_line => $self->{client}->status_line,
-            method_name => 'import_gwas_data',
+            method_name => 'import_network_data',
         );
     }
 }
@@ -327,6 +609,198 @@ input_file_path has a value which is a string
 
 
 =head2 Run_import_gwas_data_result
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 import_snp_data_params
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 Run_import_snp_data_result
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 import_trait_data_params
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 Run_import_trait_data_result
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+report_ref has a value which is a string
+report_name has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 import_network_data_params
+
+=over 4
+
+
+
+=item Definition
+
+=begin html
+
+<pre>
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+</pre>
+
+=end html
+
+=begin text
+
+a reference to a hash where the following keys are defined:
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
+
+
+=end text
+
+=back
+
+
+
+=head2 Run_import_network_data_result
 
 =over 4
 

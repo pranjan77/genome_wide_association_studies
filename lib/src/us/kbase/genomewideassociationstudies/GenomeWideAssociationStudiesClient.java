@@ -179,6 +179,57 @@ public class GenomeWideAssociationStudiesClient {
         return res.get(0);
     }
 
+    /**
+     * <p>Original spec-file function name: import_snp_data</p>
+     * <pre>
+     * </pre>
+     * @param   arg1   instance of type {@link us.kbase.genomewideassociationstudies.ImportSnpDataParams ImportSnpDataParams} (original type "import_snp_data_params")
+     * @return   instance of type {@link us.kbase.genomewideassociationstudies.RunImportSnpDataResult RunImportSnpDataResult} (original type "Run_import_snp_data_result")
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public RunImportSnpDataResult importSnpData(ImportSnpDataParams arg1, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(arg1);
+        TypeReference<List<RunImportSnpDataResult>> retType = new TypeReference<List<RunImportSnpDataResult>>() {};
+        List<RunImportSnpDataResult> res = caller.jsonrpcCall("genome_wide_association_studies.import_snp_data", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
+    /**
+     * <p>Original spec-file function name: import_trait_data</p>
+     * <pre>
+     * </pre>
+     * @param   arg1   instance of type {@link us.kbase.genomewideassociationstudies.ImportTraitDataParams ImportTraitDataParams} (original type "import_trait_data_params")
+     * @return   instance of type {@link us.kbase.genomewideassociationstudies.RunImportTraitDataResult RunImportTraitDataResult} (original type "Run_import_trait_data_result")
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public RunImportTraitDataResult importTraitData(ImportTraitDataParams arg1, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(arg1);
+        TypeReference<List<RunImportTraitDataResult>> retType = new TypeReference<List<RunImportTraitDataResult>>() {};
+        List<RunImportTraitDataResult> res = caller.jsonrpcCall("genome_wide_association_studies.import_trait_data", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
+    /**
+     * <p>Original spec-file function name: import_network_data</p>
+     * <pre>
+     * </pre>
+     * @param   arg1   instance of type {@link us.kbase.genomewideassociationstudies.ImportNetworkDataParams ImportNetworkDataParams} (original type "import_network_data_params")
+     * @return   instance of type {@link us.kbase.genomewideassociationstudies.RunImportNetworkDataResult RunImportNetworkDataResult} (original type "Run_import_network_data_result")
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public RunImportNetworkDataResult importNetworkData(ImportNetworkDataParams arg1, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(arg1);
+        TypeReference<List<RunImportNetworkDataResult>> retType = new TypeReference<List<RunImportNetworkDataResult>>() {};
+        List<RunImportNetworkDataResult> res = caller.jsonrpcCall("genome_wide_association_studies.import_network_data", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
     public Map<String, Object> status(RpcContext... jsonRpcContext) throws IOException, JsonClientException {
         List<Object> args = new ArrayList<Object>();
         TypeReference<List<Map<String, Object>>> retType = new TypeReference<List<Map<String, Object>>>() {};
