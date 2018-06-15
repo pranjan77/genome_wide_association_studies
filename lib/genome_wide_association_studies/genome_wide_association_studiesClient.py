@@ -85,6 +85,19 @@ class genome_wide_association_studies(object):
             'genome_wide_association_studies.import_network_data',
             [import_network_data_params], self._service_ver, context)
 
+    def import_motif_data(self, import_motif_data_params, context=None):
+        """
+        :param import_motif_data_params: instance of type
+           "import_motif_data_params" -> structure: parameter
+           "input_shock_id" of String, parameter "input_file_path" of String
+        :returns: instance of type "Run_import_motif_data_result" ->
+           structure: parameter "report_ref" of String, parameter
+           "report_name" of String
+        """
+        return self._client.call_method(
+            'genome_wide_association_studies.import_motif_data',
+            [import_motif_data_params], self._service_ver, context)
+
     def status(self, context=None):
         return self._client.call_method('genome_wide_association_studies.status',
                                         [], self._service_ver, context)

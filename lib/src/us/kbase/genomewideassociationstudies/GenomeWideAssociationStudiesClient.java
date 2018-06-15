@@ -230,6 +230,23 @@ public class GenomeWideAssociationStudiesClient {
         return res.get(0);
     }
 
+    /**
+     * <p>Original spec-file function name: import_motif_data</p>
+     * <pre>
+     * </pre>
+     * @param   arg1   instance of type {@link us.kbase.genomewideassociationstudies.ImportMotifDataParams ImportMotifDataParams} (original type "import_motif_data_params")
+     * @return   instance of type {@link us.kbase.genomewideassociationstudies.RunImportMotifDataResult RunImportMotifDataResult} (original type "Run_import_motif_data_result")
+     * @throws IOException if an IO exception occurs
+     * @throws JsonClientException if a JSON RPC exception occurs
+     */
+    public RunImportMotifDataResult importMotifData(ImportMotifDataParams arg1, RpcContext... jsonRpcContext) throws IOException, JsonClientException {
+        List<Object> args = new ArrayList<Object>();
+        args.add(arg1);
+        TypeReference<List<RunImportMotifDataResult>> retType = new TypeReference<List<RunImportMotifDataResult>>() {};
+        List<RunImportMotifDataResult> res = caller.jsonrpcCall("genome_wide_association_studies.import_motif_data", args, retType, true, true, jsonRpcContext, this.serviceVersion);
+        return res.get(0);
+    }
+
     public Map<String, Object> status(RpcContext... jsonRpcContext) throws IOException, JsonClientException {
         List<Object> args = new ArrayList<Object>();
         TypeReference<List<Map<String, Object>>> retType = new TypeReference<List<Map<String, Object>>>() {};

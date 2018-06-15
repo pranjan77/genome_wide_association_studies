@@ -349,6 +349,10 @@ class Application(object):
                              name='genome_wide_association_studies.import_network_data',
                              types=[dict])
         self.method_authentication['genome_wide_association_studies.import_network_data'] = 'required'  # noqa
+        self.rpc_service.add(impl_genome_wide_association_studies.import_motif_data,
+                             name='genome_wide_association_studies.import_motif_data',
+                             types=[dict])
+        self.method_authentication['genome_wide_association_studies.import_motif_data'] = 'required'  # noqa
         self.rpc_service.add(impl_genome_wide_association_studies.status,
                              name='genome_wide_association_studies.status',
                              types=[dict])
