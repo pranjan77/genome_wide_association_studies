@@ -1,0 +1,35 @@
+name     : Import TSV File as GWAS results From Staging Area
+subtitle : Import a TSV file from your staging area into your Narrative as GWAS result
+tooltip  : Import a TSV (tab-separated values) file from your staging area into your Narrative as GWAS result
+
+icon: data-yellow.png
+
+screenshots :
+    []
+
+suggestions :
+    apps:
+        related :
+            []
+        next :
+            []
+    methods:
+        related :
+            []
+        next :
+            []
+
+parameters :
+    staging_file_subdir_path :
+        ui-name : |
+            TSV File Path
+        short-hint : |
+            File with GWAS result in TSV format 
+        long-hint  : |
+            The filename should end with ".tsv"
+    genome_ref :
+        ui-name : Genome
+        short-hint : Select the Genome that contains features referenced by the Expression Matrix
+        long-hint  : Feature IDs as listed in the first column will be matched against feature IDs or aliases of the Genome
+description : |
+    <p> Import GWAS results from Staging Area </p><br>

@@ -122,8 +122,8 @@ sub new
 $import_gwas_data_params is a genome_wide_association_studies.import_gwas_data_params
 $return is a genome_wide_association_studies.Run_import_gwas_data_result
 import_gwas_data_params is a reference to a hash where the following keys are defined:
-	input_ref has a value which is a string
-	output_workspace has a value which is a string
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
 Run_import_gwas_data_result is a reference to a hash where the following keys are defined:
 	report_ref has a value which is a string
 	report_name has a value which is a string
@@ -137,8 +137,8 @@ Run_import_gwas_data_result is a reference to a hash where the following keys ar
 $import_gwas_data_params is a genome_wide_association_studies.import_gwas_data_params
 $return is a genome_wide_association_studies.Run_import_gwas_data_result
 import_gwas_data_params is a reference to a hash where the following keys are defined:
-	input_ref has a value which is a string
-	output_workspace has a value which is a string
+	input_shock_id has a value which is a string
+	input_file_path has a value which is a string
 Run_import_gwas_data_result is a reference to a hash where the following keys are defined:
 	report_ref has a value which is a string
 	report_name has a value which is a string
@@ -306,8 +306,8 @@ Insert your typespec information here.
 
 <pre>
 a reference to a hash where the following keys are defined:
-input_ref has a value which is a string
-output_workspace has a value which is a string
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
 
 </pre>
 
@@ -316,8 +316,8 @@ output_workspace has a value which is a string
 =begin text
 
 a reference to a hash where the following keys are defined:
-input_ref has a value which is a string
-output_workspace has a value which is a string
+input_shock_id has a value which is a string
+input_file_path has a value which is a string
 
 
 =end text

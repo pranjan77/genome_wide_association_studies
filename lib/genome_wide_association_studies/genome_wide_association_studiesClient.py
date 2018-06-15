@@ -37,8 +37,8 @@ class genome_wide_association_studies(object):
         """
         :param import_gwas_data_params: instance of type
            "import_gwas_data_params" (Insert your typespec information here.)
-           -> structure: parameter "input_ref" of String, parameter
-           "output_workspace" of String
+           -> structure: parameter "input_shock_id" of String, parameter
+           "input_file_path" of String
         :returns: instance of type "Run_import_gwas_data_result" ->
            structure: parameter "report_ref" of String, parameter
            "report_name" of String

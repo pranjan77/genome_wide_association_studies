@@ -21,44 +21,44 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("com.googlecode.jsonschema2pojo")
 @JsonPropertyOrder({
-    "input_ref",
-    "output_workspace"
+    "input_shock_id",
+    "input_file_path"
 })
 public class ImportGwasDataParams {
 
-    @JsonProperty("input_ref")
-    private String inputRef;
-    @JsonProperty("output_workspace")
-    private String outputWorkspace;
+    @JsonProperty("input_shock_id")
+    private String inputShockId;
+    @JsonProperty("input_file_path")
+    private String inputFilePath;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("input_ref")
-    public String getInputRef() {
-        return inputRef;
+    @JsonProperty("input_shock_id")
+    public String getInputShockId() {
+        return inputShockId;
     }
 
-    @JsonProperty("input_ref")
-    public void setInputRef(String inputRef) {
-        this.inputRef = inputRef;
+    @JsonProperty("input_shock_id")
+    public void setInputShockId(String inputShockId) {
+        this.inputShockId = inputShockId;
     }
 
-    public ImportGwasDataParams withInputRef(String inputRef) {
-        this.inputRef = inputRef;
+    public ImportGwasDataParams withInputShockId(String inputShockId) {
+        this.inputShockId = inputShockId;
         return this;
     }
 
-    @JsonProperty("output_workspace")
-    public String getOutputWorkspace() {
-        return outputWorkspace;
+    @JsonProperty("input_file_path")
+    public String getInputFilePath() {
+        return inputFilePath;
     }
 
-    @JsonProperty("output_workspace")
-    public void setOutputWorkspace(String outputWorkspace) {
-        this.outputWorkspace = outputWorkspace;
+    @JsonProperty("input_file_path")
+    public void setInputFilePath(String inputFilePath) {
+        this.inputFilePath = inputFilePath;
     }
 
-    public ImportGwasDataParams withOutputWorkspace(String outputWorkspace) {
-        this.outputWorkspace = outputWorkspace;
+    public ImportGwasDataParams withInputFilePath(String inputFilePath) {
+        this.inputFilePath = inputFilePath;
         return this;
     }
 
@@ -74,7 +74,7 @@ public class ImportGwasDataParams {
 
     @Override
     public String toString() {
-        return ((((((("ImportGwasDataParams"+" [inputRef=")+ inputRef)+", outputWorkspace=")+ outputWorkspace)+", additionalProperties=")+ additionalProperties)+"]");
+        return ((((((("ImportGwasDataParams"+" [inputShockId=")+ inputShockId)+", inputFilePath=")+ inputFilePath)+", additionalProperties=")+ additionalProperties)+"]");
     }
 
 }

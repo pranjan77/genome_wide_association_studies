@@ -8,10 +8,9 @@ module genome_wide_association_studies {
     */
 
 
-
 typedef structure {
-        string input_ref;
-        string output_workspace;
+        string input_shock_id;
+        string input_file_path;
     } import_gwas_data_params;
 
 
