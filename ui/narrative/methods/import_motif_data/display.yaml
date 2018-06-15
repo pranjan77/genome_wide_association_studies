@@ -1,0 +1,35 @@
+name     : Import Motifs
+subtitle : Import Motifs 
+tooltip  : Import Motifs 
+
+icon: data-yellow.png
+
+screenshots :
+    []
+
+suggestions :
+    apps:
+        related :
+            []
+        next :
+            []
+    methods:
+        related :
+            []
+        next :
+            []
+
+parameters :
+    staging_file_subdir_path :
+        ui-name : |
+            Motifs 
+        short-hint : |
+            Motifs 
+        long-hint  : |
+           Motifs 
+    genome_ref :
+        ui-name : Genome
+        short-hint : Select the Genome 
+        long-hint  : Select the Genome
+description : |
+    <p> Import Motifs from Staging Area </p><br>
