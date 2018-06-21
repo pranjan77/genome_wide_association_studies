@@ -5,6 +5,9 @@ import subprocess
 import uuid
 from KBaseReport.KBaseReportClient import KBaseReport
 from DataFileUtil.DataFileUtilClient import DataFileUtil
+from genome_wide_association_studies.Utils import gwas_results_utils 
+
+
 
 #END_HEADER
 
@@ -38,7 +41,7 @@ class genome_wide_association_studies:
         self.config = config
         self.scratch = os.path.abspath(config['scratch'])
         self.callbackURL = os.environ['SDK_CALLBACK_URL']
-        self.shared_folder = os.path.abspath(config['scratch'])
+       # self.shared_folder = os.path.abspath(config['scratch'])
         self.dfu = DataFileUtil(self.callbackURL)
 
         #END_CONSTRUCTOR
@@ -61,16 +64,19 @@ class genome_wide_association_studies:
 
         #Download file from staging area
         params = import_gwas_data_params
-        print (import_gwas_data_params)
+#        print (import_gwas_data_params)
 
-        download_staging_file_params = {
-            'staging_file_subdir_path': params.get('staging_file_subdir_path')
-        }
-        try:
-            scratch_file_path = self.dfu.download_staging_file(
-                      download_staging_file_params).get('copy_file_path')
-        except:
-            raise ValueError ('error uploading HTML file to shock')
+#        download_staging_file_params = {
+#            'staging_file_subdir_path': params.get('staging_file_subdir_path')
+#       }
+#        try:
+#            scratch_file_path = self.dfu.download_staging_file(
+#                      download_staging_file_params).get('copy_file_path')
+#        except:
+#            raise ValueError ('error uploading HTML file to shock')
+        gwas_utils = gwas_results_utils.gwas_results_utils(self.config)
+
+        returnVal = gwas_utils.run_import_gwas_results(params)
 
         #END import_gwas_data
 

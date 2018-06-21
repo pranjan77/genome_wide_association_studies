@@ -27,6 +27,12 @@ parameters :
             File with GWAS result in TSV format 
         long-hint  : |
             The filename should end with ".tsv"
+    gwas_results:
+        ui-name : |
+            GWAS results
+        short-hint : |
+            GWAS results
+
     genome_ref :
         ui-name : Genome
         short-hint : Select the Genome 

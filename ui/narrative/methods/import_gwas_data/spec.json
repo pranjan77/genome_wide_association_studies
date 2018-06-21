@@ -22,6 +22,19 @@
             },
             "data_source": "ftp_staging"
   },
+
+  {
+            "id": "gwas_results",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "textarea",
+            "textarea_options": {
+                "n_rows": 10
+            }
+    },
+
     {
       "id" : "genome_ref",
       "optional" : true,
