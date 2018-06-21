@@ -47,7 +47,7 @@ $(document).ready(function() {
 });
 function checkInput()
 {
-  //console.log("INSIDE checkInput(), file="+$("#file").val());
+  console.log("INSIDE checkInput(), file="+$("#file").val());
   fullPath = $("#file").val();
   if (fullPath)
   { var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
