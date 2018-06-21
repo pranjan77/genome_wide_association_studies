@@ -64,6 +64,7 @@ class genome_wide_association_studies:
 
         #Download file from staging area
         params = import_gwas_data_params
+        print (params)
 #        print (import_gwas_data_params)
 
 #        download_staging_file_params = {
@@ -75,6 +76,8 @@ class genome_wide_association_studies:
 #        except:
 #            raise ValueError ('error uploading HTML file to shock')
         gwas_utils = gwas_results_utils.gwas_results_utils(self.config)
+
+
 
         returnVal = gwas_utils.run_import_gwas_results(params)
 

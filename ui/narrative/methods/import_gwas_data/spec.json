@@ -62,6 +62,10 @@
           "target_property": "staging_file_subdir_path"
         },
         {
+          "input_parameter": "gwas_results",
+          "target_property": "gwas_results"
+        },
+        {
           "input_parameter": "genome_ref",
           "target_property": "genome_ref",
           "target_type_transform": "ref"
