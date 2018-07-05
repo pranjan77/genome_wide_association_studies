@@ -113,6 +113,8 @@ class genome_wide_association_studies:
         except:
             raise ValueError ('error uploading HTML file to shock')
 
+        print scratch_file_path
+
         #END import_snp_data
 
         # At some point might do deeper type checking...
